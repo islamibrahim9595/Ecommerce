@@ -1,0 +1,26 @@
+﻿@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Create";
+    string VBagMessage = ViewBag.Message;
+}
+
+<h1>Create New Employee</h1>
+<br />
+<br />
+<form asp-action="Create" enctype = "multipart/form-data">
+    <div class="alert alert-warning">
+        @*@ViewBag.Message*@
+        @VBagMessage
+    </div>
+    @*show all validations upside, must be <div>*@
+    <div asp-validation-summary="All"></div>
+    <partial name="PartialViews/CreateEditEmployeePartialView" />
+
+    <input type="submit" class="btn btn-primary" value="submit" />
+    <a asp-controller="Employee" asp-action="Index" class="btn btn-primary">Back to List</a>
+</form>
+
+@section Scriptsection{
+
+    <partial name="_ValidationScriptsPartial" />
+}
